@@ -1,26 +1,95 @@
 <article>
-  <h2>Welcome to Cyber Security Guide</h2>
-  <p>Your comprehensive resource for digital safety and security best practices.</p>
+  <h2>Bem-vindo ao Guia de Segurança Cibernética</h2>
+  <p>Seu recurso abrangente para práticas de segurança e proteção digital.</p>
   
   <section aria-labelledby="introduction">
-    <h3 id="introduction">Stay Safe Online</h3>
+    <h3 id="introduction">Mantenha-se Seguro Online</h3>
     <p>
-      In today's digital world, protecting yourself online is more important than ever. 
-      This guide covers essential topics to help you stay secure:
+      No mundo digital de hoje, proteger-se online é mais importante do que nunca. 
+      Este guia cobre tópicos essenciais para ajudá-lo a permanecer seguro:
     </p>
     <ul>
-      <li><strong>WhatsApp Scams:</strong> Learn to identify and avoid common scams on messaging platforms</li>
-      <li><strong>Malicious Links:</strong> Understand how to spot dangerous URLs and phishing attempts</li>
-      <li><strong>Strong Passwords:</strong> Create and manage secure passwords effectively</li>
-      <li><strong>Backup & Privacy:</strong> Protect your data and maintain your digital privacy</li>
+      <li><strong>Golpes no WhatsApp:</strong> Aprenda a identificar e evitar golpes comuns em plataformas de mensagens</li>
+      <li><strong>Links Maliciosos:</strong> Entenda como identificar URLs perigosas e tentativas de phishing</li>
+      <li><strong>Senhas Fortes:</strong> Crie e gerencie senhas seguras de forma eficaz</li>
+      <li><strong>Backup e Privacidade:</strong> Proteja seus dados e mantenha sua privacidade digital</li>
     </ul>
   </section>
-  
-  <section aria-labelledby="assistant">
-    <h3 id="assistant">AI Security Assistant</h3>
-    <p>
-      Have questions about cyber security? Visit our <a routerLink="/chatbot">AI Assistant</a> 
-      to get personalized advice and answers to your security questions.
-    </p>
+
+  <section aria-labelledby="risk-thermometer" class="risk-assessment">
+    <h3 id="risk-thermometer">🌡️ Termômetro de Risco Digital</h3>
+    <p>Responda às perguntas abaixo para avaliar seu nível de risco em segurança digital:</p>
+    
+    <div class="risk-questions">
+      <div class="question-item" *ngFor="let question of riskQuestions; let i = index">
+        <h4 class="question-text">{{ i + 1 }}. {{ question.question }}</h4>
+        <div class="answer-options">
+          <label class="radio-option">
+            <input 
+              type="radio" 
+              [name]="question.id" 
+              [value]="true"
+              [(ngModel)]="question.answer"
+              (change)="onAnswerChange()"
+            />
+            <span class="radio-custom"></span>
+            Sim
+          </label>
+          <label class="radio-option">
+            <input 
+              type="radio" 
+              [name]="question.id" 
+              [value]="false"
+              [(ngModel)]="question.answer"
+              (change)="onAnswerChange()"
+            />
+            <span class="radio-custom"></span>
+            Não
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk-results" *ngIf="showResults">
+      <div class="thermometer-container">
+        <div class="thermometer">
+          <div class="thermometer-fill" [style.height.%]="(riskAssessment.score / 5) * 100" [style.background-color]="riskAssessment.color"></div>
+        </div>
+        <div class="risk-level" [style.color]="riskAssessment.color">
+          <strong>{{ riskAssessment.level }}</strong>
+        </div>
+      </div>
+
+      <div class="risk-details">
+        <p class="risk-description">{{ riskAssessment.description }}</p>
+        
+        <div class="recommendations">
+          <h4>📋 Recomendações:</h4>
+          <ul>
+            <li *ngFor="let recommendation of riskAssessment.recommendations">
+              {{ recommendation }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="action-buttons">
+          <button class="reset-btn" (click)="resetAssessment()">
+            🔄 Fazer Nova Avaliação
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="assessment-progress" *ngIf="!showResults">
+      <p class="progress-text">
+        Progresso: {{ answeredQuestionsCount }} de {{ totalQuestionsCount }} perguntas respondidas
+      </p>
+      <div class="progress-bar">
+        <div 
+          class="progress-fill" 
+          [style.width.%]="progressPercentage"
+        ></div>
+      </div>
+    </div>
   </section>
 </article>

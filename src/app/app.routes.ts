@@ -6,6 +6,5 @@ export const routes: Routes = [
   { path: 'whatsapp-scams', loadComponent: () => import('./pages/whatsapp-scams/whatsapp-scams').then(m => m.WhatsappScams) },
   { path: 'malicious-links', loadComponent: () => import('./pages/malicious-links/malicious-links').then(m => m.MaliciousLinks) },
   { path: 'strong-passwords', loadComponent: () => import('./pages/strong-passwords/strong-passwords').then(m => m.StrongPasswords) },
-  { path: 'backup-privacy', loadComponent: () => import('./pages/backup-privacy/backup-privacy').then(m => m.BackupPrivacy) },
-  { path: 'chatbot', loadComponent: () => import('./chatbot/chatbot').then(m => m.Chatbot) }
+  { path: 'backup-privacy', loadComponent: () => import('./pages/backup-privacy/backup-privacy').then(m => m.BackupPrivacy) }
 ];

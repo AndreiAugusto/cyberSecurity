@@ -37,3 +37,143 @@ a:focus {
   color: #1a1a2e;
   outline: 2px solid #4a90e2;
 }
+
+/* Age-Specific Scams Section */
+.age-specific-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 2px solid #0f3460;
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 6px 15px rgba(15, 52, 96, 0.1);
+}
+
+.age-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.age-group {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.age-group:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.age-group.elderly {
+  border-left: 5px solid #8e44ad;
+}
+
+.age-group.youth {
+  border-left: 5px solid #3498db;
+}
+
+.age-group h4 {
+  color: #1a1a2e;
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.age-group ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.age-group li {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.age-group strong {
+  color: #0f3460;
+  font-weight: 600;
+}
+
+.prevention-tips {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border: 1px solid #dee2e6;
+}
+
+.prevention-tips h4 {
+  color: #0f3460;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.tips-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.tip-group {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-left: 4px solid #0f3460;
+}
+
+.tip-group h5 {
+  color: #0f3460;
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.tip-group ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.tip-group li {
+  margin-bottom: 0.5rem;
+  color: #495057;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .age-groups {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .tips-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .age-specific-section {
+    padding: 1.5rem;
+  }
+  
+  .age-group {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .age-group h4 {
+    font-size: 1.1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.3rem;
+  }
+}
