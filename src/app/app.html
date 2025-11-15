@@ -1,0 +1,16 @@
+<header role="banner">
+  <nav role="navigation" aria-label="Main navigation">
+    <h1>Cyber Security Guide</h1>
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <li><a routerLink="/whatsapp-scams" routerLinkActive="active">WhatsApp Scams</a></li>
+      <li><a routerLink="/malicious-links" routerLinkActive="active">Malicious Links</a></li>
+      <li><a routerLink="/strong-passwords" routerLinkActive="active">Strong Passwords</a></li>
+      <li><a routerLink="/backup-privacy" routerLinkActive="active">Backup & Privacy</a></li>
+      <li><a routerLink="/chatbot" routerLinkActive="active">AI Assistant</a></li>
+    </ul>
+  </nav>
+</header>
+<main role="main" id="main">
+  <router-outlet></router-outlet>
+</main>
